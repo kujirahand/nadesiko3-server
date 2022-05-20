@@ -1,0 +1,30 @@
+{
+  "name": "nadesiko3-server",
+  "version": "1.0.0",
+  "description": "HTTP Server Plugin for Nadesiko3",
+  "main": "nadesiko3-server.mjs",
+  "scripts": {
+    "start": "cnako3 sample/hello.nako3",
+    "nako3edit": "cnako3 sample/nako3edit/index.nako3",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kujirahand/nadesiko3-server.git"
+  },
+  "keywords": ["nadesiko3"],
+  "author": "kujirahand",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kujirahand/nadesiko3-server/issues"
+  },
+  "homepage": "https://github.com/kujirahand/nadesiko3-server#readme",
+  "files": [
+    "sample/"
+  ],
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "form-data": "^4.0.0"
+  }
+}
