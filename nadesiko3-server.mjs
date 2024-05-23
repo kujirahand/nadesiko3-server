@@ -26,11 +26,11 @@ const PluginExpress = {
     josi: [],
     pure: true,
     fn: function (sys) {
-      sys.__v0['WEBサーバ:ONSUCCESS'] = null
-      sys.__v0['WEBサーバ:ONERROR'] = null
-      sys.__v0['WEBサーバ:要求'] = null
-      sys.__v0['WEBサーバ:応答'] = null
-      sys.__v0['WEBサーバクエリ'] = {}
+      sys.__setSysVar('WEBサーバ:ONSUCCESS', null)
+      sys.__setSysVar('WEBサーバ:ONERROR', null)
+      sys.__setSysVar('WEBサーバ:要求', null)
+      sys.__setSysVar('WEBサーバ:応答', null)
+      sys.__setSysVar('WEBサーバクエリ', {})
       sys.__server = null
       sys.__webapp = null
     }
@@ -61,11 +61,11 @@ const PluginExpress = {
           console.log('| 以下のURLで起動しました。')
           console.log('+- [URL] http://localhost:' + pno)
         }
-        const callback = sys.__v0['WEBサーバ:ONSUCCESS']
+        const callback = sys.__getSysVar('WEBサーバ:ONSUCCESS')
         if (callback) { callback(pno, sys) }
       })
       server.on('error', (e) => {
-        const callback = sys.__v0['WEBサーバ:ONERROR']
+        const callback = sys.__getSysVar('WEBサーバ:ONERROR')
         if (callback) { callback(e, sys) }
       })
       // POSTを自動的に処理
@@ -90,7 +90,7 @@ const PluginExpress = {
     josi: [['を'], ['の', 'で']],
     pure: false,
     fn: function (callback, portno, sys) {
-      sys.__v0['WEBサーバ:ONSUCCESS'] = callback
+      sys.__setSysVar('WEBサーバ:ONSUCCESS', callback)
       return sys.__exec('WEBサーバ起動', [portno, sys])
     }
   },
@@ -99,7 +99,7 @@ const PluginExpress = {
     josi: [['を']],
     pure: true,
     fn: function (callback, sys) {
-      sys.__v0['WEBサーバ:ONSUCCESS'] = callback
+      sys.__setSysVar('WEBサーバ:ONSUCCESS', callback)
     },
     return_none: true
   },
@@ -108,7 +108,7 @@ const PluginExpress = {
     josi: [['を']],
     pure: true,
     fn: function (callback, sys) {
-      sys.__v0['WEBサーバ:ONERROR'] = callback
+      sys.__setSysVar('WEBサーバ:ONERROR', callback)
     },
     return_none: true
   },
@@ -169,7 +169,7 @@ const PluginExpress = {
     josi: [['を', 'の']],
     pure: true,
     fn: function (obj, sys) {
-      const res = sys.__v0['WEBサーバ:応答']
+      const res = sys.__getSysVar('WEBサーバ:応答')
       for (const key in obj) {
         res.set(key, obj[key])
       }
@@ -181,7 +181,7 @@ const PluginExpress = {
     josi: [['を', 'の']],
     pure: true,
     fn: function (no, sys) {
-      const res = sys.__v0['WEBサーバ:応答']
+      const res = sys.__getSysVar('WEBサーバ:応答')
       res.sendStatus(no)
     },
     return_none: true
@@ -191,7 +191,7 @@ const PluginExpress = {
     josi: [['を', 'と']],
     pure: true,
     fn: function (s, sys) {
-      const res = sys.__v0['WEBサーバ:応答']
+      const res = sys.__getSysVar('WEBサーバ:応答')
       res.send('' + s)
     },
     return_none: true
@@ -201,7 +201,7 @@ const PluginExpress = {
     josi: [['へ', 'に']],
     pure: true,
     fn: function (url, sys) {
-      const res = sys.__v0['WEBサーバ:応答']
+      const res = sys.__getSysVar('WEBサーバ:応答')
       res.redirect(302, url)
     },
     return_none: true
@@ -211,10 +211,10 @@ const PluginExpress = {
 // GET/POST/PUT/DELETEのコールバック
 function callbackServerFunc (callback, req, res, sys) {
   // if (debug) { console.log(req) }
-  sys.__v0['WEBサーバ:要求'] = req
-  sys.__v0['WEBサーバ:応答'] = res
-  sys.__v0['GETデータ'] = req.query
-  sys.__v0['POSTデータ'] = req.body
+  sys.__setSysVar('WEBサーバ:要求', req)
+  sys.__setSysVar('WEBサーバ:応答', res)
+  sys.__setSysVar('GETデータ', req.query)
+  sys.__setSysVar('POSTデータ', req.body)
   callback(req, res)
 }
 
