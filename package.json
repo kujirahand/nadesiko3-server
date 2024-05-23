@@ -1,6 +1,6 @@
 {
   "name": "nadesiko3-server",
-  "version": "3.6.5",
+  "version": "3.6.6",
   "description": "HTTP Server Plugin for Nadesiko3",
   "main": "nadesiko3-server.mjs",
   "scripts": {
