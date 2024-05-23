@@ -11,6 +11,16 @@ const ERROR_NO_INIT = '先に『WEBサーバ起動』命令を実行してくだ
 let debug = true
 
 const PluginExpress = {
+  'meta': {
+    type: 'const',
+    value: {
+      pluginName: 'nadesiko3-server', // プラグインの名前
+      description: 'Webサーバー(Express)プラグイン', // 説明
+      pluginVersion: '3.6.5', // プラグインのバージョン
+      nakoRuntime: ['wnako'], // 対象ランタイム
+      nakoVersion: '3.6.5' // 要求なでしこバージョン
+    }
+  },
   '初期化': {
     type: 'func',
     josi: [],
