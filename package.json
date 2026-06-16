@@ -1,6 +1,6 @@
 {
   "name": "nadesiko3-server",
-  "version": "3.6.6",
+  "version": "3.6.7",
   "description": "HTTP Server Plugin for Nadesiko3",
   "main": "nadesiko3-server.mjs",
   "scripts": {
@@ -12,7 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/kujirahand/nadesiko3-server.git"
   },
-  "keywords": ["nadesiko3"],
+  "keywords": [
+    "nadesiko3"
+  ],
   "author": "kujirahand",
   "license": "MIT",
   "bugs": {
