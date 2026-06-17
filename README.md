@@ -123,6 +123,14 @@ npm run start
 npm run nako3edit
 ```
 
+## テストの実行方法
+Node.js標準のテストフレームワークを使用したユニット・統合テストが用意されています。
+
+```bash
+# テストの実行
+npm test
+```
+
 ## マニュアル
 詳細なマニュアルや各命令の使い方は、公式サイトのドキュメントを参照してください。
 - [なでしこ3サーバー マニュアル](https://nadesi.com/v3/doc/index.php?nadesiko3-server)

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cnako3 sample/hello.nako3",
     "nako3edit": "cnako3 sample/nako3edit/index.nako3",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test test/*.mjs"
   },
   "repository": {
     "type": "git",
